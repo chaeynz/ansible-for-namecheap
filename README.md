@@ -1,7 +1,7 @@
 # Ansible for Namecheap
 
 [![Ansible Collection](https://img.shields.io/badge/Ansible-Collection-blue?style=flat-square&logo=ansible)](https://galaxy.ansible.com/)
-[![License](https://img.shields.io/github/license/chaeynz/ansible-for-namecheap-dns?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/github/license/chaeynz/ansible-for-namecheap?style=flat-square)](LICENSE)
 
 This Ansible collection provides modules to manage and query Namecheap via its API.
 
