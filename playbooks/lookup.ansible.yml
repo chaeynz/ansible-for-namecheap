@@ -1,0 +1,97 @@
+---
+- name: Ansible Playbook
+  hosts: localhost
+  gather_facts: false
+  vars:
+    my_name: ""
+    my_tld: ""
+    my_domain: ""
+    transfer_id: ""
+    nameserver: ""
+    address_id: ""
+  tasks:
+    - name: Test the lookup module domains.getList
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.getList') }}"
+
+    - name: Test the lookup module domains.getContacts
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.getContacts', params={'DomainName': my_domain}) }}"
+
+    - name: Test the lookup module domains.getTldList
+      when: false
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.getTldList') }}"
+
+    - name: Test the lookup module domains.getRegistrarLock
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.getRegistrarLock', params={'DomainName': my_domain}) }}"
+
+    - name: Test the lookup module domains.getInfo
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.getInfo', params={'DomainName': my_domain}) }}"
+
+    - name: Test the lookup module domains.dns.getList
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.dns.getList', params={'SLD': my_name, 'TLD': my_tld}) }}"
+
+    - name: Test the lookup module domains.dns.getHosts
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.dns.getHosts', params={'SLD': my_name, 'TLD': my_tld}) }}"
+
+    - name: Test the lookup module domains.dns.getEmailForwarding
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.dns.getEmailForwarding', params={'DomainName': my_domain}) }}"
+
+    - name: Test the lookup module domains.ns.getInfo
+      when: false
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.ns.getInfo', params={'SLD': my_name, 'TLD': my_tld, 'Nameserver': nameserver}) }}"
+
+    - name: Test the lookup module domains.transfer.getStatus
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.transfer.getStatus', params={'TransferID': transfer_id}) }}"
+
+    - name: Test the lookup module domains.transfer.getList
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='domains.transfer.getList') }}"
+
+    - name: Test the lookup module ssl.getList
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='ssl.getList') }}"
+
+    - name: Test the lookup module ssl.getApproverEmailList
+      when: false
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='ssl.getApproverEmailList', params={'DomainName': my_domain}) }}"
+
+    - name: Test the lookup module ssl.getInfo
+      when: false
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='ssl.getInfo', params={'CertificateID': ''}) }}"
+
+    - name: Test the lookup module users.getPricing
+      when: false
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='users.getPricing', params={'ProductType': 'DOMAIN'}) }}"
+
+    - name: Test the lookup module users.getBalances
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='users.getBalances') }}"
+
+    - name: Test the lookup module users.getAddFundsStatus
+      when: false
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='users.getAddFundsStatus', params={'TokenID': ''}) }}"
+
+    - name: Test the lookup module users.address.getInfo
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='users.address.getInfo', params={'AddressId': address_id}) }}"
+
+    - name: Test the lookup module users.address.getList
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='users.address.getList') }}"
+
+    - name: Test the lookup module whoisguard.getList
+      ansible.builtin.debug:
+        msg: "{{ lookup('chaeynz.namecheap.nc_lookup', method='whoisguard.getList') }}"

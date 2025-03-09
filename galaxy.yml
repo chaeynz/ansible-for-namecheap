@@ -1,0 +1,12 @@
+namespace: chaeynz
+name: namecheap
+version: "0.1.0"
+readme: README.md
+authors:
+  - "chaeynz <@chaeynz>"
+description: "A collection of ansible modules to manage and query the Namecheap API"
+license:
+  - WTFPL
+dependencies: {}
+repository: "https://github.com/chaeynz/ansible-for-namecheap"
+tags: [dns, namecheap]
