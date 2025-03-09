@@ -3,3 +3,5 @@ __pycache__/
 .ansible/
 .vscode/
 venv/
+*.tar.gz
+module_docs.json

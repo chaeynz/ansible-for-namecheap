@@ -10,3 +10,10 @@ license:
 dependencies: {}
 repository: "https://github.com/chaeynz/ansible-for-namecheap"
 tags: [dns, namecheap]
+build_ignore:
+  - .vscode
+  - .env
+  - venv
+  - .git
+  - .github
+  - .ansible
